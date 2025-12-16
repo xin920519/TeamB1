@@ -13,5 +13,5 @@ You can download the [Trained model](https://drive.google.com/drive/folders/1yhm
 
 **2.** `best_model_coll.pth` : In this model, the classes **“free”** and **“blocked”** are trained to identify whether there is an obstacle on the road ahead.
 
-<img width="491" height="498" alt="image" src="https://github.com/user-attachments/assets/ab1371ea-d177-4330-aad4-a0187c41fa25" />
-<img width="491" height="498" alt="image1" src="https://github.com/user-attachments/assets/7b150d23-406b-4977-9063-f97fbc2a4d5e" />
+<img width="246" height="249" alt="image" src="https://github.com/user-attachments/assets/ab1371ea-d177-4330-aad4-a0187c41fa25" />
+<img width="246" height="249" alt="image1" src="https://github.com/user-attachments/assets/7b150d23-406b-4977-9063-f97fbc2a4d5e" />
