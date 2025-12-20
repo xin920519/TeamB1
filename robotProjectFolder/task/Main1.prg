@@ -9,7 +9,7 @@ Function Main1
 			Print 'starting'
 			'use default stack
 			If useGUI_stack = False Then
-				For i = 0 To 20
+				For i = 0 To 19
 					If (i Mod 2) = 1 Then
 						list$(i) = "Block"
 					Else
@@ -19,7 +19,7 @@ Function Main1
 				Next
 			'stack by gui list
 			Else
-				For i = 0 To 20
+				For i = 0 To 19
 					GGet GUI_Task2.append_list.List(i), gui_list$
 					list$(i) = gui_list$
 					Print list$(i), i

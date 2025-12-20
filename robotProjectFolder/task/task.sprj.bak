@@ -1,11 +1,11 @@
-ENVT0100,LM:2025/12/20 13:41:19:357,DS:0000007749,CS:33726,MA:08-97-98-99-82-92,EI:           
+ENVT0100,LM:2025/12/20 14:03:31:936,DS:0000007752,CS:27194,MA:08-97-98-99-82-92,EI:           
 SystemProperties {
 	sRCVersion="7.4.3"
 	sRCRevision=""
 	sGUID="e64cbb69-b63c-4b41-b30c-63f557084d93"
 	sPath="E:\\EpsonRC70\\Projects\\task\\"
 	sCreated="2025/8/26 上午 11:21:58"
-	sLastModified="2025/12/20 下午 09:37:01"
+	sLastModified="2025/12/20 下午 10:03:19"
 	bBuildComplete=False
 	bFirstBuildComplete=True
 	bRebuildRequired=True
@@ -34,7 +34,7 @@ nRobotCount=1
 nProgramFileCount=7
 ProgramFile1 {
 	sName="Main.prg"
-	bCompiled=True
+	bCompiled=False
 	bStoreInController=True
 	sTimeSavedInController="2025/12/19 下午 02:47:00"
 }
@@ -58,13 +58,13 @@ ProgramFile4 {
 }
 ProgramFile5 {
 	sName="Main1.prg"
-	bCompiled=True
+	bCompiled=False
 	bStoreInController=True
 	sTimeSavedInController="2025/12/20 下午 01:21:29"
 }
 ProgramFile6 {
 	sName="GUI_Task1.prg"
-	bCompiled=True
+	bCompiled=False
 	bStoreInController=True
 	sTimeSavedInController="2025/12/20 下午 01:14:52"
 }

@@ -1,6 +1,4 @@
-ENVT0100,LM:2025/12/20 13:43:54:369,DS:0000003749,CS:32127,MA:08-97-98-99-82-92,EI:           
-sActiveChild="¹B¦\x"
-bMdiMaximized=False
+ENVT0100,LM:2025/12/20 14:08:08:523,DS:0000003709,CS:18494,MA:08-97-98-99-82-92,EI:           
 nProgramFileCount=7
 ProgramFile1 {
 	sName="Main.prg"
@@ -53,8 +51,8 @@ ProgramFile5 {
 	Window {
 		nLeft=3
 		nTop=2
-		nWidth=663
-		nHeight=423
+		nWidth=761
+		nHeight=600
 	}
 }
 ProgramFile6 {
@@ -62,10 +60,10 @@ ProgramFile6 {
 	bOpened=False
 	nWinState=0
 	Window {
-		nLeft=12
-		nTop=78
+		nLeft=52
+		nTop=36
 		nWidth=663
-		nHeight=438
+		nHeight=547
 	}
 }
 ProgramFile7 {
@@ -105,7 +103,7 @@ CmdWindow {
 	nWinState=0
 }
 RunWindow {
-	bOpened=True
+	bOpened=False
 	Window {
 		nLeft=9
 		nTop=9
@@ -153,17 +151,17 @@ IOLabelEditor {
 IOMonitor {
 	bOpened=False
 	Window {
-		nLeft=149
-		nTop=463
+		nLeft=205
+		nTop=441
 		nWidth=478
 		nHeight=347
 	}
 }
 Simulator {
-	bOpened=True
+	bOpened=False
 	Window {
-		nLeft=752
-		nTop=3
+		nLeft=756
+		nTop=-3
 		nWidth=775
 		nHeight=480
 	}

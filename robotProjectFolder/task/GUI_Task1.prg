@@ -216,11 +216,6 @@ Fend
 Function GUI_Task1_Start_Click(Sender$ As String)
 	ListLen = Token_c_UI + Block_c_UI
 	
-	If ListLen <> append_i Then
-		Print "Infeed count and Tray count is not equal"
-		Exit Function
-	EndIf
-	
 	If Token_c_UI = -1 Or Block_c_UI = -1 Then
 		useGUI = False
 		Print "Use default process"
@@ -229,6 +224,11 @@ Function GUI_Task1_Start_Click(Sender$ As String)
 		Print "Use GUI control process"
 	EndIf
 
+	If ListLen <> append_i And useGUI Then
+		Print "Infeed count and Tray count is not equal"
+		Exit Function
+	EndIf
+	
 	Call Main
 	
 	Call Tray_clear

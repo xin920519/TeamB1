@@ -1,7 +1,6 @@
 Integer Token_c, Block_c
 Double Token_h, Block_h
 Integer u, v, w
-'pickup 2~0 repeat twice,place 0~5 repeat once
 Integer PichUp_ti, PichUp_bi
 Integer Place_i
 Function init_robot

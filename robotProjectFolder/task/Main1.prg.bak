@@ -3,7 +3,6 @@ Function Main1
 	Integer i, scale
 	String list$(20)
 	String gui_list$
-	Print "run m1"
 	Do
 		If Sw(0) = 1 Then
 			TmReset 0
