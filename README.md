@@ -10,7 +10,7 @@ This system demonstrates two tasks, including **Pick & Place** and **Stack**, wi
 ## Pre-Setup
 
 ### 1. Adding Task
-- Place the Task folder (`RobotProjectFolder/Task`) into the Epson RC+7 `project/` folder.
+- Place the Task folder (`RobotProjectFolder/Task`) into the Epson RC+7 `projects/` folder.
 
 ### 2. 3D Model Setup
 - Import 3D models into the environment and set them up as shown below:
@@ -44,10 +44,10 @@ This system demonstrates two tasks, including **Pick & Place** and **Stack**, wi
 
 ## Task 1: Pick and Place
 
-### Basic Workflow
+### Basic Workflow(main)
 The robot sequentially picks up objects and places them into the tray in order.  
 
-### Advanced Workflow (With GUI)
+### Advanced Workflow (main1 With GUI)
 Based on the selection order in the GUI, the robot places objects into the specified positions.  
 
 Users can choose different placement sequences and quantities.  
@@ -78,10 +78,10 @@ In the Infeed section, if the selection box is empty and you press the Start but
 
 ## Task 2: Stack
 
-### Basic Workflow
+### Basic Workflow(main2)
 The robot sequentially stacks tokens and blocks in an alternating pattern.
 
-### Advanced Workflow (With GUI)
+### Advanced Workflow (main3 With GUI)
 Based on the list in the GUI, the robot places objects from top to bottom according to the specified order.  
 When the upper limit is reached, the workflow will execute automatically.  
 If you press the "Run Default" button, the robot will perform the Basic Workflow.

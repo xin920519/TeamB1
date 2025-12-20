@@ -1,14 +1,14 @@
-ENVT0100,LM:2025/12/19 14:47:00:228,DS:0000008033,CS:44690,MA:08-97-98-99-82-92,EI:           
+ENVT0100,LM:2025/12/20 13:41:19:357,DS:0000007749,CS:33726,MA:08-97-98-99-82-92,EI:           
 SystemProperties {
 	sRCVersion="7.4.3"
 	sRCRevision=""
 	sGUID="e64cbb69-b63c-4b41-b30c-63f557084d93"
 	sPath="E:\\EpsonRC70\\Projects\\task\\"
 	sCreated="2025/8/26 上午 11:21:58"
-	sLastModified="2025/12/19 下午 10:47:00"
+	sLastModified="2025/12/20 下午 09:37:01"
 	bBuildComplete=False
 	bFirstBuildComplete=True
-	bRebuildRequired=False
+	bRebuildRequired=True
 	bClearControllerProject=False
 	bClearGlobalPreserves=False
 }
@@ -31,60 +31,48 @@ UserErrorsFile {
 	nChecksum=0
 }
 nRobotCount=1
-nProgramFileCount=9
+nProgramFileCount=7
 ProgramFile1 {
 	sName="Main.prg"
-	bCompiled=False
+	bCompiled=True
 	bStoreInController=True
-	sTimeSavedInController="2025/12/19 下午 02:38:10"
+	sTimeSavedInController="2025/12/19 下午 02:47:00"
 }
 ProgramFile2 {
-	sName="test.prg"
-	bCompiled=True
-	bStoreInController=False
-	sTimeSavedInController="2025/11/25 上午 06:40:44"
-}
-ProgramFile3 {
 	sName="Main2.prg"
 	bCompiled=True
 	bStoreInController=True
 	sTimeSavedInController="2025/11/25 下午 02:35:42"
 }
-ProgramFile4 {
+ProgramFile3 {
 	sName="LocalAlignment.prg"
 	bCompiled=True
 	bStoreInController=True
 	sTimeSavedInController="2025/12/2 上午 08:14:58"
 }
-ProgramFile5 {
+ProgramFile4 {
 	sName="Main3.prg"
 	bCompiled=True
 	bStoreInController=True
-	sTimeSavedInController="2025/11/25 下午 02:36:02"
+	sTimeSavedInController="2025/12/20 下午 01:29:44"
 }
-ProgramFile6 {
+ProgramFile5 {
 	sName="Main1.prg"
 	bCompiled=True
 	bStoreInController=True
-	sTimeSavedInController="2025/12/19 下午 02:27:03"
+	sTimeSavedInController="2025/12/20 下午 01:21:29"
 }
-ProgramFile7 {
+ProgramFile6 {
 	sName="GUI_Task1.prg"
 	bCompiled=True
 	bStoreInController=True
-	sTimeSavedInController="2025/12/19 下午 02:42:15"
+	sTimeSavedInController="2025/12/20 下午 01:14:52"
 }
-ProgramFile8 {
+ProgramFile7 {
 	sName="GUI_Task2.prg"
 	bCompiled=True
 	bStoreInController=True
-	sTimeSavedInController="2025/12/19 下午 02:34:21"
-}
-ProgramFile9 {
-	sName="task1_position_check.prg"
-	bCompiled=True
-	bStoreInController=True
-	sTimeSavedInController="2025/12/2 上午 07:52:24"
+	sTimeSavedInController="2025/12/20 下午 01:37:01"
 }
 nIncludeFileCount=0
 nPointFileCount=1

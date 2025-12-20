@@ -1,5 +1,7 @@
-ENVT0100,LM:2025/12/19 14:48:18:041,DS:0000004001,CS:07457,MA:08-97-98-99-82-92,EI:           
-nProgramFileCount=9
+ENVT0100,LM:2025/12/20 13:43:54:369,DS:0000003749,CS:32127,MA:08-97-98-99-82-92,EI:           
+sActiveChild="¹B¦\x"
+bMdiMaximized=False
+nProgramFileCount=7
 ProgramFile1 {
 	sName="Main.prg"
 	bOpened=False
@@ -12,17 +14,6 @@ ProgramFile1 {
 	}
 }
 ProgramFile2 {
-	sName="test.prg"
-	bOpened=False
-	nWinState=1
-	Window {
-		nLeft=968
-		nTop=106
-		nWidth=592
-		nHeight=493
-	}
-}
-ProgramFile3 {
 	sName="Main2.prg"
 	bOpened=False
 	nWinState=0
@@ -33,7 +24,7 @@ ProgramFile3 {
 		nHeight=578
 	}
 }
-ProgramFile4 {
+ProgramFile3 {
 	sName="LocalAlignment.prg"
 	bOpened=False
 	nWinState=0
@@ -44,18 +35,18 @@ ProgramFile4 {
 		nHeight=490
 	}
 }
-ProgramFile5 {
+ProgramFile4 {
 	sName="Main3.prg"
 	bOpened=False
 	nWinState=0
 	Window {
-		nLeft=25
-		nTop=126
+		nLeft=42
+		nTop=146
 		nWidth=663
 		nHeight=438
 	}
 }
-ProgramFile6 {
+ProgramFile5 {
 	sName="Main1.prg"
 	bOpened=False
 	nWinState=0
@@ -66,37 +57,26 @@ ProgramFile6 {
 		nHeight=423
 	}
 }
-ProgramFile7 {
+ProgramFile6 {
 	sName="GUI_Task1.prg"
 	bOpened=False
 	nWinState=0
 	Window {
-		nLeft=449
-		nTop=177
+		nLeft=12
+		nTop=78
 		nWidth=663
 		nHeight=438
 	}
 }
-ProgramFile8 {
+ProgramFile7 {
 	sName="GUI_Task2.prg"
 	bOpened=False
 	nWinState=0
 	Window {
-		nLeft=669
-		nTop=5
+		nLeft=740
+		nTop=30
 		nWidth=663
 		nHeight=569
-	}
-}
-ProgramFile9 {
-	sName="task1_position_check.prg"
-	bOpened=False
-	nWinState=0
-	Window {
-		nLeft=741
-		nTop=28
-		nWidth=663
-		nHeight=631
 	}
 }
 nIncludeFileCount=0
@@ -125,10 +105,10 @@ CmdWindow {
 	nWinState=0
 }
 RunWindow {
-	bOpened=False
+	bOpened=True
 	Window {
-		nLeft=230
-		nTop=96
+		nLeft=9
+		nTop=9
 		nWidth=682
 		nHeight=383
 	}
@@ -173,19 +153,19 @@ IOLabelEditor {
 IOMonitor {
 	bOpened=False
 	Window {
-		nLeft=233
-		nTop=612
+		nLeft=149
+		nTop=463
 		nWidth=478
 		nHeight=347
 	}
 }
 Simulator {
-	bOpened=False
+	bOpened=True
 	Window {
-		nLeft=883
-		nTop=2
-		nWidth=638
-		nHeight=416
+		nLeft=752
+		nTop=3
+		nWidth=775
+		nHeight=480
 	}
 }
 TaskMgr {
@@ -209,8 +189,8 @@ Macros {
 RobotMgr {
 	bOpened=False
 	Window {
-		nLeft=276
-		nTop=306
+		nLeft=136
+		nTop=47
 		nWidth=686
 		nHeight=478
 	}
@@ -260,15 +240,15 @@ ForceGuide {
 GUIBuilder {
 	bOpened=False
 	Window {
-		nLeft=362
-		nTop=0
+		nLeft=223
+		nTop=25
 		nWidth=1050
 		nHeight=610
 	}
-	nWinState=1
+	nWinState=0
 	nSplitterDistance1=565
 	nSplitterDistance2=414
-	nSplitterDistance3=200
+	nSplitterDistance3=253
 	nSplitterDistance4=516
 }
 ProjectExplorer {

@@ -1,4 +1,4 @@
-ENVT0100,LM:2025/11/25 14:45:06:561,DS:0000023227,CS:06239,MA:08-97-98-99-82-92,EI:           
+ENVT0100,LM:2025/12/20 13:19:36:952,DS:0000022708,CS:25426,MA:08-97-98-99-82-92,EI:           
 sHelpFile=""
 nStartupForm=0
 nFormCount=2
@@ -9,38 +9,11 @@ Form1 {
 	sText="GUI_Task2"
 	nTop=0
 	nWidth=301
-	sClosed="GUI_Task2_Closed"
+	sClosed="(None)"
 	sLoad="GUI_Task2_Load"
 	sResize="(None)"
-	nControlCount=5
+	nControlCount=4
 	Control1 {
-		nControlType=1
-		sControlTypeName="Button"
-		nChildIndex=4
-		sBackColor="Control"
-		nBackColorMode=0
-		bEnabled=False
-		nEventTaskType=0
-		sFontName="Microsoft Sans Serif"
-		rFontSize=8.25
-		bFontBold=False
-		bFontItalic=False
-		sForeColor="ControlText"
-		nHeight=23
-		sImage=""
-		nImageAlign=32
-		nLeft=8
-		sName="SwitchIO"
-		nTabIndex=0
-		sText="IOswitch"
-		nTextAlign=32
-		sToolTipText=""
-		nTop=8
-		bVisible=True
-		nWidth=75
-		sClick="GUI_Task2_SwitchIO_Click"
-	}
-	Control2 {
 		nControlType=1
 		sControlTypeName="Button"
 		nChildIndex=3
@@ -67,7 +40,7 @@ Form1 {
 		nWidth=137
 		sClick="GUI_Task2_Token_Click"
 	}
-	Control3 {
+	Control2 {
 		nControlType=1
 		sControlTypeName="Button"
 		nChildIndex=2
@@ -94,7 +67,7 @@ Form1 {
 		nWidth=137
 		sClick="GUI_Task2_Block_Click"
 	}
-	Control4 {
+	Control3 {
 		nControlType=5
 		sControlTypeName="ListBox"
 		nChildIndex=1
@@ -117,7 +90,7 @@ Form1 {
 		bVisible=True
 		nWidth=280
 	}
-	Control5 {
+	Control4 {
 		nControlType=1
 		sControlTypeName="Button"
 		nChildIndex=0
@@ -159,7 +132,7 @@ Form2 {
 	Control1 {
 		nControlType=7
 		sControlTypeName="GroupBox"
-		nChildIndex=3
+		nChildIndex=6
 		sBackColor="Control"
 		bEnabled=True
 		nEventTaskType=0
@@ -181,7 +154,7 @@ Form2 {
 	Control2 {
 		nControlType=7
 		sControlTypeName="GroupBox"
-		nChildIndex=1
+		nChildIndex=5
 		sBackColor="Control"
 		bEnabled=True
 		nEventTaskType=0
@@ -203,7 +176,7 @@ Form2 {
 	Control3 {
 		nControlType=7
 		sControlTypeName="GroupBox"
-		nChildIndex=2
+		nChildIndex=4
 		sBackColor="Control"
 		bEnabled=True
 		nEventTaskType=0
@@ -225,7 +198,7 @@ Form2 {
 	Control4 {
 		nControlType=2
 		sControlTypeName="Label"
-		nChildIndex=3
+		nChildIndex=15
 		sParent="Tray"
 		sBackColor="Control"
 		nBorderStyle=0
@@ -252,7 +225,7 @@ Form2 {
 	Control5 {
 		nControlType=2
 		sControlTypeName="Label"
-		nChildIndex=4
+		nChildIndex=14
 		sParent="Tray"
 		sBackColor="Control"
 		nBorderStyle=0
@@ -279,7 +252,7 @@ Form2 {
 	Control6 {
 		nControlType=4
 		sControlTypeName="CheckBox"
-		nChildIndex=5
+		nChildIndex=13
 		sParent="Tray"
 		sBackColor="Control"
 		bChecked=False
@@ -307,7 +280,7 @@ Form2 {
 	Control7 {
 		nControlType=4
 		sControlTypeName="CheckBox"
-		nChildIndex=6
+		nChildIndex=12
 		sParent="Tray"
 		sBackColor="Control"
 		bChecked=False
@@ -335,7 +308,7 @@ Form2 {
 	Control8 {
 		nControlType=4
 		sControlTypeName="CheckBox"
-		nChildIndex=7
+		nChildIndex=11
 		sParent="Tray"
 		sBackColor="Control"
 		bChecked=False
@@ -363,7 +336,7 @@ Form2 {
 	Control9 {
 		nControlType=4
 		sControlTypeName="CheckBox"
-		nChildIndex=8
+		nChildIndex=10
 		sParent="Tray"
 		sBackColor="Control"
 		bChecked=False
@@ -419,7 +392,7 @@ Form2 {
 	Control11 {
 		nControlType=4
 		sControlTypeName="CheckBox"
-		nChildIndex=10
+		nChildIndex=8
 		sParent="Tray"
 		sBackColor="Control"
 		bChecked=False
@@ -447,7 +420,7 @@ Form2 {
 	Control12 {
 		nControlType=2
 		sControlTypeName="Label"
-		nChildIndex=3
+		nChildIndex=9
 		sParent="Infeed"
 		sBackColor="Control"
 		nBorderStyle=0
@@ -474,7 +447,7 @@ Form2 {
 	Control13 {
 		nControlType=2
 		sControlTypeName="Label"
-		nChildIndex=4
+		nChildIndex=8
 		sParent="Infeed"
 		sBackColor="Control"
 		nBorderStyle=0
@@ -501,7 +474,7 @@ Form2 {
 	Control14 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=1
+		nChildIndex=3
 		sParent="Alignment"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -532,7 +505,7 @@ Form2 {
 	Control15 {
 		nControlType=1
 		sControlTypeName="Button"
-		nChildIndex=4
+		nChildIndex=3
 		sBackColor="Control"
 		nBackColorMode=0
 		bEnabled=True
@@ -586,7 +559,7 @@ Form2 {
 	Control17 {
 		nControlType=2
 		sControlTypeName="Label"
-		nChildIndex=3
+		nChildIndex=1
 		sParent="Alignment"
 		sBackColor="Control"
 		nBorderStyle=0
@@ -644,7 +617,7 @@ Form2 {
 	Control19 {
 		nControlType=1
 		sControlTypeName="Button"
-		nChildIndex=11
+		nChildIndex=7
 		sParent="Tray"
 		sBackColor="Control"
 		nBackColorMode=0
@@ -672,7 +645,7 @@ Form2 {
 	Control20 {
 		nControlType=9
 		sControlTypeName="ComboBox"
-		nChildIndex=5
+		nChildIndex=7
 		sParent="Infeed"
 		sBackColor="Window"
 		nDropDownStyle=1
@@ -724,7 +697,7 @@ Form2 {
 	Control22 {
 		nControlType=5
 		sControlTypeName="ListBox"
-		nChildIndex=12
+		nChildIndex=6
 		sParent="Tray"
 		sBackColor="Window"
 		nBorderStyle=2
@@ -748,7 +721,7 @@ Form2 {
 	Control23 {
 		nControlType=1
 		sControlTypeName="Button"
-		nChildIndex=6
+		nChildIndex=2
 		sBackColor="Control"
 		nBackColorMode=0
 		bEnabled=True
@@ -775,7 +748,7 @@ Form2 {
 	Control24 {
 		nControlType=1
 		sControlTypeName="Button"
-		nChildIndex=5
+		nChildIndex=1
 		sBackColor="Control"
 		nBackColorMode=0
 		bEnabled=True
@@ -802,7 +775,7 @@ Form2 {
 	Control25 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=13
+		nChildIndex=5
 		sParent="Tray"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -834,7 +807,7 @@ Form2 {
 	Control26 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=14
+		nChildIndex=4
 		sParent="Tray"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -866,7 +839,7 @@ Form2 {
 	Control27 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=15
+		nChildIndex=3
 		sParent="Tray"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -898,7 +871,7 @@ Form2 {
 	Control28 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=0
+		nChildIndex=2
 		sParent="Tray"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -962,7 +935,7 @@ Form2 {
 	Control30 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=2
+		nChildIndex=0
 		sParent="Tray"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -1021,7 +994,7 @@ Form2 {
 	Control32 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=7
+		nChildIndex=5
 		sParent="Infeed"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -1052,7 +1025,7 @@ Form2 {
 	Control33 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=8
+		nChildIndex=4
 		sParent="Infeed"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -1083,7 +1056,7 @@ Form2 {
 	Control34 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=9
+		nChildIndex=3
 		sParent="Infeed"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -1114,7 +1087,7 @@ Form2 {
 	Control35 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=0
+		nChildIndex=2
 		sParent="Infeed"
 		bAllowStateChange=False
 		sBackColor="Control"
@@ -1176,7 +1149,7 @@ Form2 {
 	Control37 {
 		nControlType=13
 		sControlTypeName="Led"
-		nChildIndex=2
+		nChildIndex=0
 		sParent="Infeed"
 		bAllowStateChange=False
 		sBackColor="Control"

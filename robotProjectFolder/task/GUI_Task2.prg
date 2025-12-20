@@ -8,7 +8,6 @@ Function GUI_Task2_Load(Sender$ As String)
 	limit_b = 1
 	Integer init
 	Double scale
-	
 	scale = 1
 	Motor On
 	Power High
@@ -21,6 +20,7 @@ Function GUI_Task2_Load(Sender$ As String)
 	For init = 0 To 19
 		GSet GUI_Task2.append_list.AddItem, "-1"
 	Next init
+
 Fend
 
 Function GUI_Task2_Token_Click(Sender$ As String)
@@ -70,7 +70,6 @@ Function GUI_Task2_Block_Click(Sender$ As String)
 		GSet GUI_Task2.Token.Enabled, True
 		GSet GUI_Task2.Block.Enabled, True
 		append_i = append_i + 1
-		Print append_i
 		limit_b = limit_b + 1
 		Wait 0.5
 	Else
@@ -83,6 +82,7 @@ Function GUI_Task2_Block_Click(Sender$ As String)
 		Call Main1
 	EndIf
 Fend
+
 Function GUI_Task2_Closed(Sender$ As String)
 	Home
 Fend
@@ -91,4 +91,5 @@ Function GUI_Task2_Run_Default_Click(Sender$ As String)
 	useGUI_stack = False
 	Call Main1
 Fend
+
 

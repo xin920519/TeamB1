@@ -3,6 +3,7 @@ Function Main1
 	Integer i, scale
 	String list$(20)
 	String gui_list$
+	Print "run m1"
 	Do
 		If Sw(0) = 1 Then
 			TmReset 0
@@ -22,6 +23,7 @@ Function Main1
 				For i = 0 To 20
 					GGet GUI_Task2.append_list.List(i), gui_list$
 					list$(i) = gui_list$
+					Print list$(i), i
 				Next
 			EndIf
 			

@@ -4,7 +4,7 @@ Integer append_i
 Integer ListLen
 Global Integer place_queue(5)
 Global Boolean useGUI
-'Momoery process
+
 Global Integer mem_pla_arr(6)
 Global Integer mem_infe_t_arr(3)
 Global Integer mem_infe_b_arr(3)
