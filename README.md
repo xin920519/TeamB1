@@ -16,20 +16,20 @@ This system demonstrates two tasks, including **Pick & Place** and **Stack**, wi
 - Import 3D models into the environment and set them up as shown below:
 
 <p align="center">
-  <img src="images/infeed.png" height="150">
-  <img src="images/aligment.png" height="150">
-  <img src="images/part_tray.png" height="150">
+  <img src="images/infeed.png" height="250">
+  <img src="images/aligment.png" height="250">
+  <img src="images/part_tray.png" height="250">
 </p>
 
 - Define the **local coordinate system** for each object:
 
 <p align="center">
-  <img src="images/local.png" height="150">
+  <img src="images/local.png">
 </p>
 
 ### 3. Wiring (In the real environment)
 <p align="center">
-  <img src="images/Wiring.jpg" height="500">
+  <img src="images/Wiring.jpg">
 </p>
 
 ### 4. Initial Calibration (In the real environment)
