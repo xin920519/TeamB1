@@ -1,0 +1,132 @@
+Double u, v, w
+Function task1_position_check
+	Double x, y
+	Double scale
+	scale = 3
+	u = 90
+	v = 180
+	w = 0
+	Motor On
+	Power High
+	Speed 30 / scale
+	Accel 30 / scale, 30 / scale
+	SpeedS 500 / scale
+	AccelS 5000 / scale
+	'set tool
+	Tool 0
+	TLSet 1, XY(0, 0, 100, 0)
+	Tool 1
+	
+	'infeed#####################################
+	Integer i
+	String type$(2)
+	type$(0) = "Token"; type$(1) = "Block"
+	For i = 0 To 1
+		If type$(i) = "Token" Then
+			Print "pick Token Pos"
+			'tune--------
+			x = 45
+			y = 27
+			'tune--------
+		ElseIf type$(i) = "Block" Then
+			Print "pick block Pos"
+			'tune--------
+			x = 20
+			y = 20
+			'tune--------
+		Else
+			Print("Unknown type in pick up")
+			Exit Function
+		EndIf
+		'safe zone
+		Go XY(31, 24, 130, u, v, w) /1
+
+		'go safe zone
+		Move XY(x, y, 100, u, v, w) /1
+		'go point
+		Move XY(x, y, (2 * 6 + 0), u, v, w) /1
+		Pause
+		'go back safe zone
+		Move XY(x, y + 3, 100, u, v, w) /1
+	Next i
+	
+	'aligment###################################
+	For i = 0 To 1
+		Double place_dx, place_dy
+		Double pick_dx, pick_dy
+		If type$(i) = "Token" Then
+			Print "aligment Token Pos"
+			'tune--------
+			'x = 45
+			'y = 26.84
+			x = 22.5
+			y = 22.5
+			place_dx = 0
+			place_dy = 5
+			pick_dx = -2.5
+			pick_dy = -1.5
+			'tune--------
+		ElseIf type$(i) = "Block" Then
+			Print "aligment Block Pos"
+			'tune--------
+			x = 22.5
+			y = 22.5
+			place_dx = 3
+			place_dy = 3
+			pick_dx = 0.5
+			pick_dy = -1.5
+			'tune--------
+		Else
+			Print("Unknown type")
+			Exit Function
+		EndIf
+		'go safe zone
+		Go XY(x + place_dx, y + place_dy, 100, u - 180, v, w) /2 /F
+		'go point
+		Move XY(x + place_dx, y + place_dy, 3, u - 180, v, w) /2 /F
+		'go back top
+		Move XY(x + pick_dx, y + pick_dy, 30, u - 180, v, w) /2 /F
+		Wait .1
+		'go point
+		Move XY(x + pick_dx, y + pick_dy, 3, u - 180, v, w) /2 /F
+		Pause
+		'go safe zone
+		Move XY(x + pick_dx, y + pick_dy, 100, u - 180, v, w) /2 /F
+	Next i
+	
+	'place######################################################
+	'Use Local3 to define pallet
+	P11 = XY(25, 45, 0, 90, 180, 0) /3
+	P12 = XY(85, 45, 0, 90, 180, 0) /3
+	P13 = XY(25, 15, 0, 90, 180, 0) /3
+	Pallet 1, P11, P12, P13, 3, 2
+	Double du
+	x = -1
+	y = -1
+	du = 180
+	'Token#####
+	Print "place Token Pos"
+	'go safe zone
+	Go Pallet(1, 1) +Z(100) +X(x) +Y(y) +U(du)
+	'go top
+    Move Pallet(1, 1) +Z(30) +X(x) +Y(y) +U(du)
+    'go point
+	TMove XY(0, 0, 37, 0)
+	Pause
+	'go back top
+	TMove XY(0, 0, -37, 0)
+	'Block#####
+	Print "place Block Pos"
+	'go safe zone
+	Go Pallet(1, 4) +Z(100) +X(x) +Y(y) +U(du)
+	'go top
+    Move Pallet(1, 4) +Z(30) +X(x) +Y(y) +U(du)
+    'go point
+	TMove XY(0, 0, 37, 0)
+	Pause
+	'go back top
+	TMove XY(0, 0, -37, 0)
+	
+	
+Fend
+

@@ -1,0 +1,203 @@
+Integer Token_c, Block_c
+Double Token_h, Block_h
+Integer u, v, w
+'pickup 2~0 repeat twice,place 0~5 repeat once
+Integer PichUp_ti, PichUp_bi
+Integer Place_i
+Function init_robot
+	Double scale
+	scale = 0.5
+	u = 90
+	v = 180
+	w = 0
+	Motor On
+	Power High
+	Speed 30 / scale
+	Accel 30 / scale, 30 / scale
+	SpeedS 500 / scale
+	AccelS 5000 / scale
+	
+	'set tool
+	Tool 0
+	TLSet 1, XY(0, 0, 100, 0)
+	Tool 1
+Fend
+Function Main
+	Do
+		If Sw(0) = 1 Then
+			TmReset 0
+			Print 'starting'
+			Exit Do
+		EndIf
+		Print 'waiting'
+	Loop
+	Call init_robot
+	Integer Token_i, Block_i
+	Token_c = 2
+	Block_c = 2
+	Token_h = 6.0
+	Block_h = 6.0
+	CP On
+	'safe zone
+	Go XY(31, 24, 130, u, v, w) /1
+	'NO USE GUI control
+	If Not useGUI Then
+		Place_i = 0
+		PichUp_ti = 2
+		PichUp_bi = 2
+		For Token_i = Token_c To 0 Step -1
+			PickUp("Token")
+			PichUp_ti = PichUp_ti - 1
+			Alignment("Token")
+			place(Place_i)
+			Place_i = Place_i + 1
+		Next Token_i
+		
+		For Block_i = Block_c To 0 Step -1
+			PickUp("Block")
+			PichUp_bi = PichUp_bi - 1
+			Alignment("Block")
+			place(Place_i)
+			Place_i = Place_i + 1
+		Next Block_i
+		
+	'Use GUI control
+	Else
+		Place_i = 0
+		String type$
+		For Place_i = 0 To (Token_c_UI + Block_c_UI - 1)
+			GGet GUI_Task1.existList.List(Place_i), type$
+			PickUp(type$)
+			Alignment(type$)
+			place(place_queue(Place_i))
+		Next Place_i
+	EndIf
+	
+	Home
+	Print Tmr(0)
+	'Go XY(31, 24, 130, u, v, w) /1
+Fend
+Function PickUp(type$ As String)
+	Double x, y
+	Integer tier
+	If type$ = "Token" Then
+		'tune--------
+		x = 45
+		y = 27
+		'tune--------
+		If useGUI Then
+			tier = infeed_ti - 1
+		Else
+			tier = PichUp_ti
+		EndIf
+	ElseIf type$ = "Block" Then
+		'tune--------
+		x = 20
+		y = 20
+		'tune--------
+		If useGUI Then
+			tier = infeed_bi - 1
+		Else
+			tier = PichUp_bi
+		EndIf
+	Else
+		Print("Unknown type in pick up")
+		Exit Function
+	EndIf
+	'go safe zone
+	Move XY(x, y, 100, u, v, w) /1
+	'go point
+	Move XY(x, y, (tier * Token_h + 0), u, v, w) /1
+	Call pick
+	'go back safe zone
+	Move XY(x, y + 3, 100, u, v, w) /1
+Fend
+Function Alignment(type$ As String)
+	Double x, y, place_dx, place_dy, mem_i
+	Double pick_dx, pick_dy
+	If type$ = "Token" Then
+		'tune--------
+		'x = 45
+		'y = 26.84
+		x = 22.5
+		y = 22.5
+		place_dx = 0
+		place_dy = 5
+		pick_dx = -2.5
+		pick_dy = -1.5
+		'tune--------
+		mem_i = 21
+	ElseIf type$ = "Block" Then
+		'tune--------
+		x = 22.5
+		y = 22.5
+		place_dx = 2
+		place_dy = 5
+		pick_dx = 0.5
+		pick_dy = -1.5
+		'tune--------
+		mem_i = 22
+	Else
+		Print("Unknown type")
+		Exit Function
+	EndIf
+
+	MemOn (mem_i)
+	'go safe zone
+	Go XY(x + place_dx, y + place_dy, 100, u - 180, v + 10, w) /2 /F
+	'go point
+	Move XY(x + place_dx, y + place_dy, -1, u - 180, v + 10, w) /2 /F
+	'place
+	Wait .5
+	Off 8
+	Wait .5
+	'go back top
+	Move XY(x + pick_dx, y + pick_dy, 30, u - 180, v, w) /2 /F
+	Wait .1
+	'go point
+	Move XY(x + pick_dx, y + pick_dy, -1, u - 180, v, w) /2 /F
+	'pick
+	pick()
+	'go safe zone
+	Move XY(x + pick_dx, y + pick_dy, 100, u - 180, v, w) /2 /F
+	MemOff (mem_i)
+Fend
+Function place(i As Integer)
+	Double x, y, du
+	'Use Local3 to define pallet
+	P11 = XY(25, 45, 0, 90, 180, 0) /3
+	P12 = XY(85, 45, 0, 90, 180, 0) /3
+	P13 = XY(25, 15, 0, 90, 180, 0) /3
+	Pallet 1, P11, P12, P13, 3, 2
+	
+	x = -1
+	y = -1
+	'if -180 
+	'x = 2
+	'y = -3
+	'du = 0
+	'go safe zone
+	Print "pallet index :", i
+	Go Pallet(1, i + 1) +Z(100) +X(x) +Y(y) +U(du)
+	'go top
+    Move Pallet(1, i + 1) +Z(30) +X(x) +Y(y) +U(du)
+    
+    'go point
+	TMove XY(0, 0, 37, 0)
+	MemOn (mem_pla_arr(i))
+	Wait .5
+	Off 8
+	Wait .5
+	
+	'go back top
+	TMove XY(0, 0, -37, 0)
+Fend
+Function pick
+	TMove XY(0, 0, 1, 0)
+	Wait .5
+	On 8
+	Wait .5
+	TMove XY(0, 0, -1, 0)
+Fend
+
+

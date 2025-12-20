@@ -1,0 +1,392 @@
+Global Integer Token_c_UI, Block_c_UI
+Boolean isMax_t, isMax_b, infeed_select
+Integer append_i
+Integer ListLen
+Global Integer place_queue(5)
+Global Boolean useGUI
+'Momoery process
+Global Integer mem_pla_arr(6)
+Global Integer mem_infe_t_arr(3)
+Global Integer mem_infe_b_arr(3)
+
+Global Integer infeed_ti
+Global Integer infeed_bi
+
+Function Task1_Load(Sender$ As String)
+	Token_c_UI = -1
+	Block_c_UI = -1
+	append_i = 0
+	isMax_t = False
+	isMax_b = False
+	useGUI = False
+	infeed_select = False
+	Integer i, j, queue_i, mem_infe
+	
+	Call init_robot
+	Xqt memory_process
+	'初始化infeed選取清單
+	For i = 0 To 3
+		GSet Task1.COB_b.AddItem, Str$(i)
+		GSet Task1.COB_t.AddItem, Str$(i)
+	Next i
+	
+	'初始化放置列表
+	For j = 0 To 5
+		GSet Task1.existList.AddItem, "-1"
+	Next j
+	
+	'初始化放置順序
+	For queue_i = 0 To 5
+		place_queue(queue_i) = -1
+	Next
+	
+	'初始化記憶體
+	mem_infe_t_arr(0) = 11; mem_infe_t_arr(1) = 12; mem_infe_t_arr(2) = 13;
+	mem_infe_b_arr(0) = 14; mem_infe_b_arr(1) = 15; mem_infe_b_arr(2) = 16;
+	For mem_infe = 0 To 2
+		MemOn (mem_infe_t_arr(mem_infe))
+		MemOn (mem_infe_b_arr(mem_infe))
+	Next mem_infe
+	mem_pla_arr(0) = 31; mem_pla_arr(1) = 32; mem_pla_arr(2) = 33
+	mem_pla_arr(3) = 34; mem_pla_arr(4) = 35; mem_pla_arr(5) = 36
+Fend
+Function Task1_Closed(Sender$ As String)
+	
+Fend
+Function Task1_CB_t1_Click(Sender$ As String)
+	'Print "t1"
+	checkState("Token")
+	If Not isMax_t And infeed_select Then
+		GSet Task1.existList.List(append_i), "Token"
+		place_queue(append_i) = 0
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_t1.Checked, False
+	EndIf
+Fend
+
+Function Task1_CB_t2_Click(Sender$ As String)
+	'Print "t2"
+	checkState("Token")
+	If Not isMax_t And infeed_select Then
+		GSet Task1.existList.List(append_i), "Token"
+		place_queue(append_i) = 1
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_t2.Checked, False
+	EndIf
+Fend
+
+Function Task1_CB_t3_Click(Sender$ As String)
+	'Print "t3"
+	checkState("Token")
+	If Not isMax_t And infeed_select Then
+		GSet Task1.existList.List(append_i), "Token"
+		place_queue(append_i) = 2
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_t3.Checked, False
+	EndIf
+Fend
+
+Function Task1_CB_b1_Click(Sender$ As String)
+	'Print "b1"
+	checkState("Block")
+	If Not isMax_b And infeed_select Then
+		GSet Task1.existList.List(append_i), "Block"
+		place_queue(append_i) = 3
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_b1.Checked, False
+	EndIf
+Fend
+
+Function Task1_CB_b2_Click(Sender$ As String)
+	'Print "b2"
+	checkState("Block")
+	If Not isMax_b And infeed_select Then
+		GSet Task1.existList.List(append_i), "Block"
+		place_queue(append_i) = 4
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_b2.Checked, False
+	EndIf
+Fend
+
+Function Task1_CB_b3_Click(Sender$ As String)
+	'Print "b3"
+	checkState("Block")
+	If Not isMax_b And infeed_select Then
+		GSet Task1.existList.List(append_i), "Block"
+		place_queue(append_i) = 5
+		append_i = append_i + 1
+	Else
+		GSet Task1.CB_b3.Checked, False
+	EndIf
+Fend
+
+Function Task1_COB_t_Click(Sender$ As String)
+	GGet Task1.COB_t.SelectedIndex, Token_c_UI
+	clear()
+Fend
+
+Function Task1_COB_b_Click(Sender$ As String)
+	GGet Task1.COB_b.SelectedIndex, Block_c_UI
+	clear()
+Fend
+'清除data
+Function Task1_Cls_Click(Sender$ As String)
+	Call Tray_clear
+Fend
+Function clear
+	Call Tray_clear
+Fend
+Function Tray_clear
+	Integer i
+	append_i = 0
+	isMax_t = False
+	isMax_b = False
+	For i = 0 To 5
+		GSet Task1.existList.List(i), "-1"
+	Next
+	GSet Task1.CB_t1.Checked, False
+	GSet Task1.CB_t2.Checked, False
+	GSet Task1.CB_t3.Checked, False
+	GSet Task1.CB_b1.Checked, False
+	GSet Task1.CB_b2.Checked, False
+	GSet Task1.CB_b3.Checked, False
+Fend
+Function mem_clear
+	Integer i, j
+	For i = 0 To 6
+		MemOff (mem_pla_arr(i))
+	Next
+	'For j = 0 To 2
+		'MemOn (mem_infe_t_arr(j))
+		'MemOn (mem_infe_b_arr(j))
+	'Next j
+Fend
+'確認list的物件是否超過上限
+Function checkState(type$ As String)
+	Integer i
+	String curType$
+	Integer limit_t, limit_b
+	If Token_c_UI = -1 Or Block_c_UI = -1 Then
+		Print "Infeed unselect"
+		Call Tray_clear
+		infeed_select = False
+		Exit Function
+	Else
+		infeed_select = True
+	EndIf
+	limit_t = 0
+	limit_b = 0
+	ListLen = Token_c_UI + Block_c_UI
+	If ListLen = 0 Then
+		Print "All limit"
+		isMax_t = True
+		isMax_b = True
+		Exit Function
+	EndIf
+	'根據list最大數量 檢查上限
+	For i = 0 To ListLen - 1
+		GGet Task1.existList.List(i), curType$
+		If curType$ = type$ And type$ = "Token" Then
+			limit_t = limit_t + 1
+		ElseIf curType$ = type$ And type$ = "Block" Then
+			limit_b = limit_b + 1
+		EndIf
+		'根據種類，檢查是否到上限
+		If type$ = "Token" Then
+			If limit_t >= Token_c_UI Or Token_c_UI = 0 Then
+				isMax_t = True
+				Print "Token is limit"
+				Exit For
+			EndIf
+		ElseIf type$ = "Block" Then
+			If limit_b >= Block_c_UI Or Block_c_UI = 0 Then
+				isMax_b = True
+				Print "Block is limit"
+				Exit For
+			EndIf
+		EndIf
+	Next
+	
+Fend
+Function Task1_Start_Click(Sender$ As String)
+	ListLen = Token_c_UI + Block_c_UI
+
+	If Token_c_UI = -1 Or Block_c_UI = -1 Then
+		useGUI = False
+		Print "Use default process"
+	Else
+		useGUI = True
+		Print "Use GUI control process"
+	EndIf
+
+	If ListLen <> append_i Then
+		Print "Infeed count and Tray count is not equal"
+	EndIf
+
+	Call Main2
+	
+	Call Tray_clear
+	append_i = 0
+Fend
+Function Task1_Safe_Zone_Click(Sender$ As String)
+	Go XY(31, 24, 130, 90, 180, -6.5) /1
+Fend
+
+Function Task1_Home_Click(Sender$ As String)
+	Home
+Fend
+
+Function Task1_Mem_cls_Click(Sender$ As String)
+	Call mem_clear
+Fend
+Function memory_process
+	Integer i
+	Integer mt, mb
+	Integer Remove_ti_arr(3), Remove_bi_arr(3)
+	Integer Remove_ti, Remove_bi
+	Integer mem_Infe_ti, mem_Infe_bi
+	Do
+		Remove_ti = 0
+		Remove_bi = 0
+		mem_Infe_ti = 0
+		mem_Infe_bi = 0
+		'初始化
+		For i = 0 To 2
+			Remove_ti_arr(i) = 1
+			Remove_bi_arr(i) = 1
+		Next
+		'檢查Tray 是否有物件存在、紀錄數量
+		For mt = 0 To 2
+			If MemSw(mem_pla_arr(mt)) = 1 Then
+				Remove_ti_arr(Remove_ti) = 0
+				Remove_ti = Remove_ti + 1
+			EndIf
+			
+			If mt = 0 Then
+				If MemSw(mem_pla_arr(mt)) = 1 Then
+					GSet Task1.CB_t1.Enabled, False
+				Else
+					GSet Task1.CB_t1.Enabled, True
+				EndIf
+			EndIf
+			
+			If mt = 1 Then
+				If MemSw(mem_pla_arr(mt)) = 1 Then
+					GSet Task1.CB_t2.Enabled, False
+				Else
+					GSet Task1.CB_t2.Enabled, True
+				EndIf
+			EndIf
+			
+			If mt = 2 Then
+				If MemSw(mem_pla_arr(mt)) = 1 Then
+					GSet Task1.CB_t3.Enabled, False
+				Else
+					GSet Task1.CB_t3.Enabled, True
+				EndIf
+			EndIf
+		Next mt
+		
+		For mb = 3 To 5
+			If MemSw(mem_pla_arr(mb)) = 1 Then
+				Remove_bi_arr(Remove_bi) = 0
+				Remove_bi = Remove_bi + 1
+			EndIf
+			
+			If mb = 3 Then
+				If MemSw(mem_pla_arr(mb)) = 1 Then
+					GSet Task1.CB_b1.Enabled, False
+				Else
+					GSet Task1.CB_b1.Enabled, True
+				EndIf
+			EndIf
+			
+			If mb = 4 Then
+				If MemSw(mem_pla_arr(mb)) = 1 Then
+					GSet Task1.CB_b2.Enabled, False
+				Else
+					GSet Task1.CB_b2.Enabled, True
+				EndIf
+			EndIf
+			
+			If mb = 5 Then
+				If MemSw(mem_pla_arr(mb)) = 1 Then
+					GSet Task1.CB_b3.Enabled, False
+				Else
+					GSet Task1.CB_b3.Enabled, True
+				EndIf
+			EndIf
+		Next mb
+		'回去修改Infeed的數量
+		For mt = 0 To 2
+			If Remove_ti_arr(mt) = 1 Then
+				MemOn (mem_infe_t_arr(mt))
+				mem_Infe_ti = mem_Infe_ti + 1
+			Else
+				MemOff (mem_infe_t_arr(mt))
+			EndIf
+		Next
+		
+		For mb = 0 To 2
+			If Remove_bi_arr(mb) = 1 Then
+				MemOn (mem_infe_b_arr(mb))
+				mem_Infe_bi = mem_Infe_bi + 1
+			Else
+				MemOff (mem_infe_b_arr(mb))
+			EndIf
+		Next
+		infeed_ti = mem_Infe_ti
+		infeed_bi = mem_Infe_bi
+	Loop
+Fend
+
+Function Task1_Led_t1_DblClick(Sender$ As String)
+	If MemSw(31) = 1 Then
+		MemOff (31)
+	Else
+		MemOn (31)
+	EndIf
+Fend
+Function Task1_Led_t2_DblClick(Sender$ As String)
+	If MemSw(32) = 1 Then
+		MemOff (32)
+	Else
+		MemOn (32)
+	EndIf
+Fend
+Function Task1_Led_t3_DblClick(Sender$ As String)
+	If MemSw(33) = 1 Then
+		MemOff (33)
+	Else
+		MemOn (33)
+	EndIf
+Fend
+Function Task1_Led_b1_DblClick(Sender$ As String)
+	If MemSw(34) = 1 Then
+		MemOff (34)
+	Else
+		MemOn (34)
+	EndIf
+Fend
+Function Task1_Led_b2_DblClick(Sender$ As String)
+	If MemSw(35) = 1 Then
+		MemOff (35)
+	Else
+		MemOn (35)
+	EndIf
+Fend
+Function Task1_Led_b3_DblClick(Sender$ As String)
+	If MemSw(36) = 1 Then
+		MemOff (36)
+	Else
+		MemOn (36)
+	EndIf
+Fend
+
+
+

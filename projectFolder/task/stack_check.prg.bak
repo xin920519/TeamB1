@@ -1,0 +1,7 @@
+Function stack_check_Load(Sender$ As String)
+	Integer init
+	For init = 0 To 11
+		GSet stack_check.ListBox1.AddItem, "0"
+	Next init
+Fend
+

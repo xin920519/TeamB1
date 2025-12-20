@@ -1,0 +1,5 @@
+Function StartbyIO_Load(Sender$ As String)
+	Call stack_task
+	Home
+Fend
+
