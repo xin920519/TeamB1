@@ -9,7 +9,7 @@ This system demonstrates two tasks, including **Pick & Place** and **Stack**, wi
 
 ## Pre-Setup
 
-### 1. Task Integration
+### 1. Adding Task
 - Place the Task folder (`RobotProjectFolder/Task`) into the Epson RC+7 `project/` folder.
 
 ### 2. 3D Model Setup
