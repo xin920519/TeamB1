@@ -33,7 +33,7 @@ This system demonstrates two tasks, including **Pick & Place** and **Stack**, wi
 </p>
 
 ### 4. Initial Calibration (In the real environment)
-- Run the **CreateLocal** function and use **single-point calibration** to generate the local coordinate system.
+- Run the **CreateLocal** function and use **single-point calibration** to generate the local coordinate.
 - Run the **LocalAlignment** function to correct the positions of the objects.
 
 
@@ -116,6 +116,7 @@ You can download the [Trained model](https://drive.google.com/drive/folders/1yhm
 **1.** `best_steering_modev4.pth` : The trained model is mainly
 
 **2.** `best_model_coll.pth` : In this model, the classes **“free”** and **“blocked”** are trained to identify whether there is an obstacle on the road ahead.
-
-<img width="246" height="249" alt="image" src="https://github.com/user-attachments/assets/ab1371ea-d177-4330-aad4-a0187c41fa25" />
-<img width="246" height="249" alt="image1" src="https://github.com/user-attachments/assets/7b150d23-406b-4977-9063-f97fbc2a4d5e" />
+<p align="center">
+    <img width="246" height="249" alt="image" src="https://github.com/user-attachments/assets/ab1371ea-d177-4330-aad4-a0187c41fa25" />
+    <img width="246" height="249" alt="image1" src="https://github.com/user-attachments/assets/7b150d23-406b-4977-9063-f97fbc2a4d5e" />
+</p>
